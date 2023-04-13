@@ -1,14 +1,13 @@
-import EventList from '@/components/EventList/EventList';
+import EventBlock from '@/components/EventBlock/EventBlock';
 
+import { MainWrapper } from './HomePage.styles';
 import { events } from '@/data/Events';
 
 const HomePage = () => (
-  <>
-    <h2>Live Events</h2>
-    <EventList events={events.filter((event) => event.type === 'live')} />
-    <h2>Upcoming Events</h2>
-    <EventList events={events.filter((event) => event.type === 'upcoming')} />
-  </>
+  <MainWrapper>
+    <EventBlock heading='Live Events' events={events.filter(event => event.type === 'live')} />
+    <EventBlock heading='Upcoming Events' events={events.filter(event => event.type === 'upcoming')} />
+  </MainWrapper>
 );
 
 export default HomePage;
