@@ -7,13 +7,14 @@ export const AppHeader = styled.header`
   justify-content: center;
   align-items: center;
   padding: 15px 20px;
-  background-color: #1b1b1b;
+  background-color: #3c3333;
   color: #ccff00;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   h1 {
     font-size: 36px;
     line-height: 40px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: #ccff00;
+    background-color: #efffaf;
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;

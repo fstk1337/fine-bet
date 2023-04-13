@@ -1,12 +1,8 @@
 import { FC } from 'react';
 
-import { formatDate } from '@/util/DateFormatter';
-import { formatTime } from '@/util/TimeFormatter';
-
 import { EventItemProps } from './EventItem.props';
 import {
   EventContent,
-  EventHeader,
   EventLink,
   EventWrapper,
   Score
@@ -15,20 +11,6 @@ import {
 const EventItem: FC<EventItemProps> = ({ event }) => (
   <EventWrapper>
     <EventLink to={event.id.toString()}>
-      <EventHeader>
-        {event.type === 'live' && (
-          <>
-            <div>Live</div>
-            <div>{`${event.score.minutesPassed}'`}</div>
-          </>
-        )}
-        {event.type === 'upcoming' && (
-          <>
-            <div>{formatDate(event.date)}</div>
-            <div>{formatTime(event.date)}</div>
-          </>
-        )}
-      </EventHeader>
       <EventContent>
         <div>{event.homeTeam?.name}</div>
         <div>{event.awayTeam?.name}</div>
