@@ -8,9 +8,6 @@ export const AppHeader = styled.header`
   align-items: center;
   padding: 15px 20px;
   background-color: #1b1b1b;
-  background-image: url(${logo});
-  background-repeat: no-repeat;
-  background-position: 20px center;
   color: #ccff00;
   h1 {
     font-size: 36px;
@@ -29,5 +26,14 @@ export const AppMain = styled.main`
 `;
 
 export const RootLink = styled(Link)`
+  position: absolute;
+  left: 20px;
   text-decoration: none;
+`;
+
+export const LogoImage = styled.div`
+  width: 40px;
+  height: 40px;
+  background-image: url(${logo});
+  background-repeat: no-repeat;
 `;
