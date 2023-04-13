@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import logo from '@/assets/icons/logo.svg';
+import { Link } from 'react-router-dom';
 
 export const AppHeader = styled.header`
   display: flex;
@@ -18,9 +19,15 @@ export const AppHeader = styled.header`
     background-color: #ccff00;
     color: transparent;
     background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
   }
 `;
 
 export const AppMain = styled.main`
   padding: 20px;
+`;
+
+export const RootLink = styled(Link)`
+  text-decoration: none;
 `;

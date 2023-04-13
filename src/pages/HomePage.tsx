@@ -5,8 +5,14 @@ import { events } from '@/data/Events';
 
 const HomePage = () => (
   <MainWrapper>
-    <EventBlock heading='Live Events' events={events.filter(event => event.type === 'live')} />
-    <EventBlock heading='Upcoming Events' events={events.filter(event => event.type === 'upcoming')} />
+    <EventBlock
+      heading='Live Events'
+      events={events.filter((event) => event.type === 'live')}
+    />
+    <EventBlock
+      heading='Upcoming Events'
+      events={events.filter((event) => event.type === 'upcoming')}
+    />
   </MainWrapper>
 );
 
