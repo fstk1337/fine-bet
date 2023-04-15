@@ -1,9 +1,12 @@
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { events } from '@/data/Events';
-import { router } from '@/app/router';
 import {
+  BetButton,
   BetForm,
+  BetInput,
+  BetPoints,
   EventDetailsContent,
   EventDetailsHeader,
   EventDetailsWrapper,
@@ -14,16 +17,26 @@ import {
 } from './EventDetails.styles';
 import { formatDate } from '@/util/DateFormatter';
 import { formatTime } from '@/util/TimeFormatter';
-import { useState } from 'react';
 
 const EventDetails = () => {
   const [betValue, setBetValue] = useState('');
+  const [betOption, setBetOption] = useState<null | 'home' | 'draw' | 'away'>(
+    null
+  );
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const event = events.find((event) => event.id.toString() === id);
 
-  if (!event) {
-    router.navigate('/');
-  }
+  const makeABet = () => {
+    navigate('/events');
+  };
+
+  useEffect(() => {
+    if (!event) {
+      navigate('/');
+    }
+  }, []);
 
   return (
     <StyledEvent>
@@ -47,29 +60,57 @@ const EventDetails = () => {
           </EventDetailsContent>
         </EventDetailsWrapper>
       )}
-      <BetForm>
-        <RadioBets>
-          <input type='radio' id='home' name='betOption' value='home' />
-          <label htmlFor='home'>Home</label>
-          <input type='radio' id='draw' name='betOption' value='draw' />
-          <label htmlFor='draw'>Draw</label>
-          <input type='radio' id='away' name='betOption' value='away' />
-          <label htmlFor='away'>Away</label>
-        </RadioBets>
-        <input
-          type='text'
-          name='betValue'
-          placeholder='0'
-          value={betValue.toString()}
-          onKeyPress={(e) => {
-            if (!/[0-9]/.test(e.key)) {
-              e.preventDefault();
-            }
-          }}
-          onChange={e => setBetValue(e.target.value)}
-        />
-        <button type='submit'>Make a bet</button>
-      </BetForm>
+      {event && (
+        <BetForm>
+          <RadioBets>
+            <input
+              type='radio'
+              id='home'
+              name='betOption'
+              value='home'
+              onClick={() => setBetOption('home')}
+            />
+            <label htmlFor='home'>Home {event.rates.homeWin.toFixed(2)}</label>
+            <input
+              type='radio'
+              id='draw'
+              name='betOption'
+              value='draw'
+              onClick={() => setBetOption('draw')}
+            />
+            <label htmlFor='draw'>Draw {event.rates.draw.toFixed(2)}</label>
+            <input
+              type='radio'
+              id='away'
+              name='betOption'
+              value='away'
+              onClick={() => setBetOption('away')}
+            />
+            <label htmlFor='away'>Away {event.rates.awayWin.toFixed(2)}</label>
+          </RadioBets>
+          <div>
+            <BetInput
+              type='text'
+              name='betValue'
+              placeholder='0'
+              value={betValue.toString()}
+              onChange={(e) => {
+                if (!Number(e.target.value) && e.target.value.length > 0)
+                  return;
+                setBetValue(e.target.value);
+              }}
+            />
+            <BetPoints>pts.</BetPoints>
+          </div>
+          <BetButton
+            type='button'
+            disabled={!betOption || betValue === ''}
+            onClick={() => makeABet()}
+          >
+            Make a bet
+          </BetButton>
+        </BetForm>
+      )}
     </StyledEvent>
   );
 };

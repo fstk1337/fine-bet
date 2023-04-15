@@ -9,7 +9,7 @@ const EventDetailsPage = () => {
 
   return (
     <MainWrapper>
-      <BackButton onClick={() => navigate(-1)}>
+      <BackButton onClick={() => navigate('/events')}>
         <span>Back to all events</span>
       </BackButton>
       <EventDetails />
