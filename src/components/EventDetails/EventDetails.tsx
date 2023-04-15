@@ -3,17 +3,21 @@ import { useParams } from 'react-router-dom';
 import { events } from '@/data/Events';
 import { router } from '@/app/router';
 import {
+  BetForm,
   EventDetailsContent,
   EventDetailsHeader,
   EventDetailsWrapper,
+  RadioBets,
   StyledEvent,
   TeamInfo,
   Versus
 } from './EventDetails.styles';
 import { formatDate } from '@/util/DateFormatter';
 import { formatTime } from '@/util/TimeFormatter';
+import { useState } from 'react';
 
 const EventDetails = () => {
+  const [betValue, setBetValue] = useState('');
   const { id } = useParams();
   const event = events.find((event) => event.id.toString() === id);
 
@@ -43,6 +47,29 @@ const EventDetails = () => {
           </EventDetailsContent>
         </EventDetailsWrapper>
       )}
+      <BetForm>
+        <RadioBets>
+          <input type='radio' id='home' name='betOption' value='home' />
+          <label htmlFor='home'>Home</label>
+          <input type='radio' id='draw' name='betOption' value='draw' />
+          <label htmlFor='draw'>Draw</label>
+          <input type='radio' id='away' name='betOption' value='away' />
+          <label htmlFor='away'>Away</label>
+        </RadioBets>
+        <input
+          type='text'
+          name='betValue'
+          placeholder='0'
+          value={betValue.toString()}
+          onKeyPress={(e) => {
+            if (!/[0-9]/.test(e.key)) {
+              e.preventDefault();
+            }
+          }}
+          onChange={e => setBetValue(e.target.value)}
+        />
+        <button type='submit'>Make a bet</button>
+      </BetForm>
     </StyledEvent>
   );
 };

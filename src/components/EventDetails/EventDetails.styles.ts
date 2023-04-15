@@ -22,6 +22,7 @@ export const EventDetailsWrapper = styled.div`
   padding: 20px 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
+  margin-bottom: 20px;
 `;
 
 export const EventDetailsHeader = styled.div`
@@ -66,4 +67,13 @@ export const Versus = styled.div`
   text-align: center;
   color: #3c3333;
   width: calc(100% - 70px);
+`;
+
+export const BetForm = styled.form`
+
+`;
+
+
+export const RadioBets = styled.div`
+
 `;
