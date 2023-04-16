@@ -54,8 +54,18 @@ const EventDetails = () => {
       {event && (
         <EventDetailsWrapper>
           <EventDetailsHeader>
-            <div>{formatDate(event.date)}</div>
-            <div>{formatTime(event.date)}</div>
+            {event.type === 'upcoming' &&
+              <>
+                <div>{formatDate(event.date)}</div>
+                <div>{formatTime(event.date)}</div>
+              </>
+            }
+            {event.type === 'live' &&
+              <>
+                <div>LIVE</div>
+                <div>{event.score.minutesPassed}'</div>
+              </>
+            }
           </EventDetailsHeader>
           <EventDetailsContent>
             <TeamInfo>
@@ -66,7 +76,9 @@ const EventDetails = () => {
               <img src={event.awayTeam?.imageUrl} />
               <div>{event.awayTeam?.name}</div>
             </TeamInfo>
-            <Versus>vs</Versus>
+            <Versus>
+              {event.type === 'live' ? `${event.score.home} : ${event.score.away}`  : 'vs'}
+            </Versus>
           </EventDetailsContent>
         </EventDetailsWrapper>
       )}
