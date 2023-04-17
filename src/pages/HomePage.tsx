@@ -10,7 +10,8 @@ const HomePage = () => {
   const bet = useAppSelector(selectCurrentBet);
 
   return (
-    <>{bet && <BetMessage bet={bet} />}
+    <>
+      {bet && <BetMessage bet={bet} />}
       <MainWrapper>
         <EventBlock
           heading='Live Events'
