@@ -4,7 +4,11 @@ import styled from 'styled-components';
 
 export const EventWrapper = styled.li`
   width: 100%;
+  max-width: 400px;
   list-style: none;
+  @media screen and (min-width: 768px) {
+    max-width: 600px;
+  }
 `;
 
 export const EventLink = styled(Link)`
@@ -22,16 +26,24 @@ export const EventLink = styled(Link)`
   font-weight: 600;
   color: #3c3333;
   text-decoration: none;
+  @media screen and (min-width: 768px) {
+    padding: 30px;
+  }
 `;
 
 export const EventContent = styled.div`
   display: flex;
+  position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
   line-height: 20px;
   color: #3c3333;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
 `;
 
 export const Score = styled.div`
@@ -41,5 +53,10 @@ export const Score = styled.div`
   position: absolute;
   text-align: center;
   color: #3c3333;
-  width: calc(100% - 70px);
+  width: 50px;
+  left: calc(50% - 25px);
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
 `;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledEvent = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   h2 {
     margin-bottom: 25px;
@@ -10,6 +11,14 @@ export const StyledEvent = styled.div`
     font-weight: 700;
     line-height: 40px;
     color: #3c3333;
+    @media screen and (min-width: 768px) {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+    @media screen and (min-width: 1200px) {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
   }
 `;
 
@@ -18,11 +27,20 @@ export const EventDetailsWrapper = styled.div`
   flex-direction: column;
   row-gap: 25px;
   width: 100%;
+  max-width: 280px;
   background-color: #efffaf;
   padding: 20px 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+    max-width: 500px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 40px;
+    max-width: 700px;
+  }
 `;
 
 export const EventDetailsHeader = styled.div`
@@ -34,17 +52,36 @@ export const EventDetailsHeader = styled.div`
   font-size: 14px;
   line-height: 20px;
   color: #3c3333;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 22px;
+    line-height: 28px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 `;
 
 export const EventDetailsContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
   color: #3c3333;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 22px;
+    line-height: 28px;
+  }
 `;
 
 export const TeamInfo = styled.div`
@@ -52,9 +89,23 @@ export const TeamInfo = styled.div`
   flex-direction: column;
   row-gap: 10px;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    row-gap: 20px;
+  }
+  @media screen and (min-width: 1200px) {
+    row-gap: 30px;
+  }
   img {
     width: 70px;
     height: 70px;
+    @media screen and (min-width: 768px) {
+      width: 120px;
+      height: 120px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 180px;
+      height: 180px;
+    }
   }
 `;
 
@@ -66,7 +117,12 @@ export const Versus = styled.div`
   position: absolute;
   text-align: center;
   color: #3c3333;
-  width: calc(100% - 70px);
+  width: 100px;
+  left: calc(50% - 50px);
+  @media screen and (min-width: 1200px) {
+    font-size: 38px;
+    line-height: 44px;
+  }
 `;
 
 export const BetForm = styled.form`
@@ -75,6 +131,10 @@ export const BetForm = styled.form`
   align-items: center;
   row-gap: 20px;
   padding: 15px 40px;
+  @media screen and (min-width: 768px) {
+    padding: 30px 40px;
+    row-gap: 30px;
+  }
 `;
 
 export const RadioBets = styled.div`
@@ -83,6 +143,9 @@ export const RadioBets = styled.div`
   justify-content: center;
   align-items: center;
   column-gap: 25px;
+  @media screen and (min-width: 768px) {
+    column-gap: 50px;
+  }
   input {
     display: none;
     &:checked + label {
@@ -106,6 +169,14 @@ export const RadioBets = styled.div`
     border-radius: 15px;
     text-transform: uppercase;
     color: #3c3333;
+    @media screen and (min-width: 768px) {
+      width: 100px;
+      height: 100px;
+      font-size: 16px;
+      line-height: 20px;
+      padding: 10px;
+      border-radius: 50%;
+    }
   }
 `;
 
@@ -120,6 +191,11 @@ export const BetInput = styled.input`
   color: #3c3333;
   border: 1px solid rgba(60, 51, 51, 0.5);
   border-radius: 10px 0px 0px 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 26px;
+    padding: 20px;
+  }
 `;
 
 export const BetPoints = styled.span`
@@ -135,6 +211,11 @@ export const BetPoints = styled.span`
   border-style: solid;
   border-color: rgba(60, 51, 51, 0.5);
   border-radius: 0px 10px 10px 0px;
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 26px;
+    padding: 19.5px 10px;
+  }
 `;
 
 export const BetButton = styled.button`
@@ -150,6 +231,11 @@ export const BetButton = styled.button`
   border: 1px solid rgba(60, 51, 51, 0.5);
   border-radius: 10px;
   transition: all 0.2s ease-in;
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+    line-height: 36px;
+    padding: 20px 35px;
+  }
   &:disabled {
     pointer-events: none;
     background: rgba(60, 51, 51, 0.5);
@@ -159,6 +245,3 @@ export const BetButton = styled.button`
     background-color: #efffaf;
   }
 `;
-
-// color: #3C3333;
-// background: #EFFFAF;

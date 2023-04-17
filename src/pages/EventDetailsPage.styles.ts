@@ -6,6 +6,7 @@ export const BackButton = styled.button`
   height: 40px;
   cursor: pointer;
   margin: 0;
+  margin-bottom: 20px;
   padding: 0;
   padding-left: 40px;
   border: 0;
@@ -18,5 +19,13 @@ export const BackButton = styled.button`
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    @media screen and (min-width: 1200px) {
+      font-size: 22px;
+      line-height: 26px;
+    }
   }
 `;

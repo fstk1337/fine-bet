@@ -6,7 +6,6 @@ export const AppHeader = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px 20px;
   background-color: #3c3333;
   color: #ccff00;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -19,22 +18,55 @@ export const AppHeader = styled.header`
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
+    @media screen and (min-width: 768px) {
+      font-size: 42px;
+      line-height: 48px;
+    }
+    @media screen and (min-width: 1200px) {
+      font-size: 51px;
+      line-height: 60px;
+    }
   }
 `;
 
-export const AppMain = styled.main`
-  padding: 20px;
+export const AppMain = styled.main``;
+
+export const DefaultWrapper = styled.div`
+  padding: 15px 20px;
+  @media screen and (min-width: 768px) {
+    padding: 20px 80px;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 20px 100px;
+  }
 `;
 
 export const RootLink = styled(Link)`
   position: absolute;
   left: 20px;
   text-decoration: none;
+  @media screen and (min-width: 768px) {
+    left: 80px;
+  }
+  @media screen and (min-width: 1200px) {
+    left: 120px;
+  }
 `;
 
 export const LogoImage = styled.div`
   width: 40px;
   height: 40px;
   background-image: url(${logo});
+  background-size: 40px 40px;
   background-repeat: no-repeat;
+  @media screen and (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+    background-size: 48px 48px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 60px;
+    height: 60px;
+    background-size: 60px 60px;
+  }
 `;

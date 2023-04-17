@@ -10,17 +10,19 @@ const HomePage = () => {
   const bet = useAppSelector(selectCurrentBet);
 
   return (
-    <MainWrapper>
+    <>
       {bet && <BetMessage bet={bet} />}
-      <EventBlock
-        heading='Live Events'
-        events={events.filter((event) => event.type === 'live')}
-      />
-      <EventBlock
-        heading='Upcoming Events'
-        events={events.filter((event) => event.type === 'upcoming')}
-      />
-    </MainWrapper>
+      <MainWrapper>
+        <EventBlock
+          heading='Live Events'
+          events={events.filter((event) => event.type === 'live')}
+        />
+        <EventBlock
+          heading='Upcoming Events'
+          events={events.filter((event) => event.type === 'upcoming')}
+        />
+      </MainWrapper>
+    </>
   );
 };
 
