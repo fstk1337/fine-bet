@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 import cross from '@/assets/icons/cross.svg';
 
@@ -14,9 +14,14 @@ export const MessageText = styled.p`
   font-size: 14px;
   line-height: 18px;
   font-weight: 500px;
-  color: #3C3333;
+  color: #3c3333;
   margin: 0;
   padding: 15px 40px 15px 20px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -30,7 +35,6 @@ export const CloseButton = styled.button`
   background-size: 10px 10px;
   background-position: center center;
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: 10px;
 `;
-

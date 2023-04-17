@@ -54,18 +54,11 @@ const EventDetails = () => {
       {event && (
         <EventDetailsWrapper>
           <EventDetailsHeader>
-            {event.type === 'upcoming' &&
-              <>
-                <div>{formatDate(event.date)}</div>
-                <div>{formatTime(event.date)}</div>
-              </>
-            }
-            {event.type === 'live' &&
-              <>
-                <div>LIVE</div>
-                <div>{event.score.minutesPassed}'</div>
-              </>
-            }
+            <div>{formatDate(event.date)}</div>
+            {event.type === 'upcoming' && <div>{formatTime(event.date)}</div>}
+            {event.type === 'live' && (
+              <div>LIVE: {event.score.minutesPassed}&apos;</div>
+            )}
           </EventDetailsHeader>
           <EventDetailsContent>
             <TeamInfo>
@@ -77,7 +70,9 @@ const EventDetails = () => {
               <div>{event.awayTeam?.name}</div>
             </TeamInfo>
             <Versus>
-              {event.type === 'live' ? `${event.score.home} : ${event.score.away}`  : 'vs'}
+              {event.type === 'live'
+                ? `${event.score.home} : ${event.score.away}`
+                : 'vs'}
             </Versus>
           </EventDetailsContent>
         </EventDetailsWrapper>
