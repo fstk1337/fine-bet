@@ -33,6 +33,7 @@ export const EventLink = styled(Link)`
 
 export const EventContent = styled.div`
   display: flex;
+  position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

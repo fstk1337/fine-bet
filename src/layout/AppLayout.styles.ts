@@ -22,6 +22,10 @@ export const AppHeader = styled.header`
       font-size: 42px;
       line-height: 48px;
     }
+    @media screen and (min-width: 1200px) {
+      font-size: 51px;
+      line-height: 60px;
+    }
   }
 `;
 
@@ -32,6 +36,9 @@ export const DefaultWrapper = styled.div`
   @media screen and (min-width: 768px) {
     padding: 20px 80px;
   }
+  @media screen and (min-width: 768px) {
+    padding: 20px 100px;
+  }
 `;
 
 export const RootLink = styled(Link)`
@@ -40,6 +47,9 @@ export const RootLink = styled(Link)`
   text-decoration: none;
   @media screen and (min-width: 768px) {
     left: 80px;
+  }
+  @media screen and (min-width: 1200px) {
+    left: 120px;
   }
 `;
 
@@ -53,5 +63,10 @@ export const LogoImage = styled.div`
     width: 48px;
     height: 48px;
     background-size: 48px 48px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 60px;
+    height: 60px;
+    background-size: 60px 60px;
   }
 `;
